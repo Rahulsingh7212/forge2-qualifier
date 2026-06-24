@@ -22,6 +22,6 @@ class ListModel extends Model
 
     public function cards(): HasMany
     {
-        return $this->hasMany(Card::class)->orderBy('position');
+        return $this->hasMany(Card::class, 'list_id')->orderBy('position');
     }
 }
