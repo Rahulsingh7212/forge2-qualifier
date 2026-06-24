@@ -56,3 +56,46 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+# Forge2 Qualifier
+
+## Project
+Tiny Trello-style Kanban Board
+
+## Tech Stack
+- Laravel API
+- React (Vite)
+- SQLite
+
+## Agent Setup
+Brain: Hermes
+Hands: OpenClaw
+
+## Model Routing
+Hermes:
+- OpenRouter Owl Alpha
+
+OpenClaw:
+- Groq / Gemini
+
+Reason:
+Hermes handles planning and memory.
+OpenClaw handles coding and execution.
+
+## Run Backend
+
+cd backend
+composer install
+php artisan migrate
+php artisan serve
+
+## Run Frontend
+
+cd frontend
+npm install
+npm run dev
+
+## Live URL
+
+<your deployed URL>
