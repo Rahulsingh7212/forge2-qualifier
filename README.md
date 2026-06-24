@@ -98,4 +98,4 @@ npm run dev
 
 ## Live URL
 
-<your deployed URL>
+<https://forge2-qualifier-2iryzz5uf-rahulsingh7212s-projects.vercel.app/>
