@@ -12,15 +12,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Task::all();
     }
 
     /**
@@ -28,7 +20,17 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'status' => 'nullable|string|in:pending,in-progress,done',
+            'priority' => 'nullable|string|in:low,medium,high',
+            'duedate' => 'nullable|date',
+        ]);
+
+        $task = Task::create($validated);
+
+        return response()->json($task, 201);
     }
 
     /**
@@ -36,15 +38,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Task $task)
-    {
-        //
+        return $task;
     }
 
     /**
@@ -52,7 +46,17 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'sometimes|string|max:255',
+            'description' => 'nullable|string',
+            'status' => 'sometimes|string|in:pending,in-progress,done',
+            'priority' => 'sometimes|string|in:low,medium,high',
+            'duedate' => 'nullable|date',
+        ]);
+
+        $task->update($validated);
+
+        return response()->json($task, 200);
     }
 
     /**
@@ -60,6 +64,8 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return response()->noContent();
     }
 }

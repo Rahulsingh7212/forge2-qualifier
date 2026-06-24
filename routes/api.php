@@ -3,8 +3,10 @@
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
+Route::apiResource('tasks', TaskController::class);
 Route::apiResource('boards', BoardController::class);
 Route::apiResource('boards.lists', ListController::class)->only(['store', 'update', 'destroy']);
 Route::apiResource('lists.cards', CardController::class)->only(['store', 'update', 'destroy']);
